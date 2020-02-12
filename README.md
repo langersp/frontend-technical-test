@@ -1,3 +1,10 @@
+This test has been completed by Paul Langley
+
+To run locally: npm i & gulp default
+
+-------------------------------------------------------------------------------------
+
+
 Frontend Technical Test for Connect Group [www.connect-group.com](http://www.connect-group.com/)
 
 #### Requirements
