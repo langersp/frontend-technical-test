@@ -4,16 +4,19 @@
 **/
 
 export const getData = (cb) => {
-    const vehicles = new XMLHttpRequest();
-    vehicles.open('GET', 'http://localhost:9988/api/vehicle');
+	fetch('http://localhost:9988/api/vehicle')
+		.then(res => res.json())
+		.then(async data => {
+			const vehicleDetails = await Promise.all(data.vehicles.map(vehicle => {
+				return fetch(`http://localhost:9988/api/vehicle/${vehicle.id}`)
+					.then(res => res.json())
+			}));
 
-    vehicles.onreadystatechange = function() {
-        if(vehicles.readyState === 4) {
- 		    if(vehicles.status === 200) {
- 			    cb(vehicles.responseText);
-		    }
-		}
-	};
+			const vehicleData = {
+				vehicles: data.vehicles,
+				vehicleDetails
+			}
 
-	vehicles.send();
-};
+			cb(vehicleData);
+		})
+}

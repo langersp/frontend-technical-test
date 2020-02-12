@@ -1,5 +1,82 @@
-$bg-colour: #ccc;
+$bg-colour: #fff;
+$header-colour: #000;
+$text-color:#666;
 
 body {
 	background-color: $bg-colour;
+	padding:0;
+	margin:0
+}
+
+.vehicles-holder {
+	display: grid;
+	grid-template-columns:100%;
+
+	@media screen and (min-width:768px) {
+		grid-template-columns:50% 50%
+	}
+
+	@media screen and (min-width:992px) {
+		grid-template-columns:25% 25% 25% 25%
+	}
+}
+
+.vehicle {
+	display: grid;
+	grid-template-columns:25% 75%;
+	border-bottom:2px solid #ccc;
+
+	@media screen and (min-width:768px) {
+		grid-template-columns:100%;
+		border-bottom:none;
+		border-right:2px solid #ccc;	
+	}
+
+	img {
+		object-fit: cover;
+		height: 100%;
+
+		@media screen and (min-width:768px) {
+			height: auto;
+		}
+	}
+
+	&__text {
+		padding:1rem 0 1rem 1rem;
+
+		@media screen and (min-width:768px) {
+			text-align:center
+		}
+	}
+
+	&__name {
+		text-transform: uppercase;
+		
+		color: $header-colour;
+		width:auto;
+		padding:0;
+		margin:0;
+		font-size:1rem;
+		letter-spacing:1px;
+
+		@media screen and (min-width:768px) {
+			border-top:1px solid $header-colour;
+			border-bottom:1px solid $header-colour;
+			display: inline-block;
+			margin-bottom:1rem; 
+		}
+	}
+
+	&__price, &__description {
+		color: $text-color;
+		margin:0;
+		font-size:0.8rem;
+	}
+
+	&__price {
+		font-weight: 700; 
+		margin-bottom:0.5rem; 
+		display:block;
+	}
+
 }
