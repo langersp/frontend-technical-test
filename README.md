@@ -1,6 +1,8 @@
 This test has been completed by Paul Langley
 
-To run locally: npm i && gulp default
+To run locally: 
+npm i && gulp default
+view http://localhost:9988/ in browser
 
 -------------------------------------------------------------------------------------
 
